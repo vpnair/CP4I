@@ -14,16 +14,12 @@ spec:
     image: cp.icr.io/cp/ibm-mqadvanced-server-integration:9.2.4.0-r1-amd64
     imagePullPolicy: Always
     storage:
-      defaultClass: ocs-storagecluster-ceph-rbdmirror
-      persistedData:
-        enabled: true
-        type: persistent-claim
       queueManager:
         type: persistent-claim
-      recoveryLogs:
         class: ocs-storagecluster-ceph-rbdmirror
         enabled: true
-        type: persistent-claim
+        accessModes:
+        - ReadWriteOnce
     availability:
       #type: MultiInstance
       type: SingleInstance
