@@ -15,11 +15,12 @@ spec:
     imagePullPolicy: Always
     storage:
       queueManager:
-        type: persistent-claim
-        class: ocs-storagecluster-ceph-rbdmirror
-        enabled: true
-        accessModes:
-        - ReadWriteOnce
+        - name: mqpvc 
+          persistentVolumeClaim: 
+            claimName: mq1-pvc
+            enabled: true
+            accessModes:
+            - ReadWriteOnce
     availability:
       #type: MultiInstance
       type: SingleInstance
